@@ -13,12 +13,14 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 /**
- * A login screen that offers login via email/password.
+ * SUMMARY: Added a Registration activity that allows the user to register.
+ * Also added a navigation drawer to the MainActivity
  *
- * SUMMARY: Set up a Firebase Email/Password User Authentication system
- *  1) Username and password values are compared against the Firebase User database.
- *  If the user is present, then it will launch the LoggedInActivity,
- *  Otherwise, it will display an incorrect username/password to the user
+ *  1) RegisterActivity: User can now register with Email and Password combo
+ *  If the email has not been registered, then it will add a new user to the Firebase DB,
+ *  Otherwise, it will alert the user that it is unavailable
+ *
+ *  2) MainActivity: Replaced LoggedInActivity and has a Navigation DrawerLayout with a logout button
  */
 class LoginActivity : AppCompatActivity() {
     var fbAuth = FirebaseAuth.getInstance()
@@ -29,12 +31,19 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         var btnLogin = findViewById<Button>(R.id.email_sign_in_button)
+        val btnRegister = findViewById<Button>(R.id.btn_register)
+
         val actv_username = findViewById<AutoCompleteTextView>(R.id.email)
         val et_password = findViewById<AutoCompleteTextView>(R.id.password)
 
         btnLogin.setOnClickListener { view ->
             signIn(view, actv_username.getText().toString(), et_password.getText().toString())
         }
+
+
+        btnRegister.setOnClickListener(View.OnClickListener {
+            var intent = Intent(this, RegisteActivity::class.java)
+            startActivity(intent)        })
     }
 
     fun signIn(view: View, email: String, password: String) {
@@ -42,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
         fbAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful) {
-                var intent = Intent(this, LoggedInActivity::class.java)
+                var intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("id", fbAuth.currentUser?.email)
                 startActivity(intent)
 
@@ -51,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
 
     fun showMessage(view: View, message: String) {
         Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE).setAction("Action", null).show()
