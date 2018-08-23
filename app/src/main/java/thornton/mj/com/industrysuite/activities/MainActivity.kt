@@ -1,4 +1,4 @@
-package thornton.mj.com.industrysuite
+package thornton.mj.com.industrysuite.activities
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -13,6 +13,8 @@ import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import thornton.mj.com.industrysuite.R
+import thornton.mj.com.industrysuite.fragments.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,10 +27,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -78,23 +76,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.home -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, HomeFragment.newInstance())
+                        .commit()
             }
-            R.id.nav_gallery -> {
-
+            R.id.schedule -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, ScheduleFragment.newInstance())
+                        .commit()
             }
-            R.id.nav_slideshow -> {
-
+            R.id.guestlist -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, GuestListFragment.newInstance())
+                        .commit()
             }
-            R.id.nav_manage -> {
-
+            R.id.contacts -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, ContactsFragment.newInstance())
+                        .commit()
             }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+            R.id.security -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, SecurityFragment.newInstance())
+                        .commit()
             }
         }
 
