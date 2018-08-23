@@ -5,34 +5,32 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/home"
+            android:icon="@drawable/baseline_home_black_24"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/schedule"
+            android:icon="@drawable/baseline_schedule_black_24"
+            android:title="Schedule" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/guestlist"
+            android:icon="@drawable/baseline_list_black_24"
+            android:title="Guestlist" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+            android:id="@+id/contacts"
+            android:icon="@drawable/baseline_contacts_black_24"
+            android:title="Contacts" />
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/security"
+            android:icon="@drawable/baseline_security_black_24"
+            android:title="Security" />
+        <item
+            android:id="@+id/signal_management"
+            android:icon="@drawable/baseline_announcement_black_24"
+            android:title="Signal Manager" />
+
+
+    </group>
 
 </menu>

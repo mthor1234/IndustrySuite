@@ -1,4 +1,4 @@
-package thornton.mj.com.industrysuite
+package thornton.mj.com.industrysuite.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,17 +10,11 @@ import android.widget.Button
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import thornton.mj.com.industrysuite.R
 
 
 /**
- * SUMMARY: Added a Registration activity that allows the user to register.
- * Also added a navigation drawer to the MainActivity
- *
- *  1) RegisterActivity: User can now register with Email and Password combo
- *  If the email has not been registered, then it will add a new user to the Firebase DB,
- *  Otherwise, it will alert the user that it is unavailable
- *
- *  2) MainActivity: Replaced LoggedInActivity and has a Navigation DrawerLayout with a logout button
+ * SUMMARY:
  */
 class LoginActivity : AppCompatActivity() {
     var fbAuth = FirebaseAuth.getInstance()
