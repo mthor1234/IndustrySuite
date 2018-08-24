@@ -20,17 +20,32 @@
             android:id="@+id/contacts"
             android:icon="@drawable/baseline_contacts_black_24"
             android:title="Contacts" />
-
-        <item
-            android:id="@+id/security"
-            android:icon="@drawable/baseline_security_black_24"
-            android:title="Security" />
-        <item
-            android:id="@+id/signal_management"
-            android:icon="@drawable/baseline_announcement_black_24"
-            android:title="Signal Manager" />
-
-
     </group>
+
+    <item android:title="Role Based">
+        <menu>
+            <item
+                android:id="@+id/security"
+                android:icon="@drawable/baseline_security_black_24"
+                android:title="Security" />
+            <item
+                android:id="@+id/signal_management"
+                android:icon="@drawable/baseline_announcement_black_24"
+                android:title="Alert Manager" />
+        </menu>
+    </item>
+
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/baseline_account_circle_black_24"
+                android:title="Profile" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/baseline_close_black_24"
+                android:title="Logout" />
+        </menu>
+    </item>
 
 </menu>
