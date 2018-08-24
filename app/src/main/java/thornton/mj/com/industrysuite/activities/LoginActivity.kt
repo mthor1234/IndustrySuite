@@ -14,7 +14,16 @@ import thornton.mj.com.industrysuite.R
 
 
 /**
- * SUMMARY:
+ * SUMMARY: Added an AlertManagerFragment (Dialog Fragment)
+ *
+ * 1. AlertManagerFragment is a DialogFragment that has a RecyclerView filled with
+ * pre-populated messages to message the manager when clicked. Added a click listener,
+ * waiting on having a managers application/DB side built out before the message / alert
+ * is sent to the manager
+ *
+ * 2. Added a password view toggle on the LoginActivity
+ *
+ * 3. Added icons for profile and logout
  */
 class LoginActivity : AppCompatActivity() {
     var fbAuth = FirebaseAuth.getInstance()

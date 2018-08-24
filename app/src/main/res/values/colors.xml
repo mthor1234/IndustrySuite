@@ -3,4 +3,11 @@
     <color name="colorPrimary">#005DC5</color>
     <color name="colorPrimaryDark">#003775</color>
     <color name="colorAccent">#057BFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="rich_black">#010102</color>
+    <color name="spanish_gray">#96939B</color>
+    <color name="azureish_white">#DADFF7</color>
+    <color name="lavender_white">#C4CAD0</color>
+
+
 </resources>

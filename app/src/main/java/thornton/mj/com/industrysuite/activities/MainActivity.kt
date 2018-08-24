@@ -1,5 +1,6 @@
 package thornton.mj.com.industrysuite.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -9,10 +10,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import thornton.mj.com.industrysuite.R
 import thornton.mj.com.industrysuite.fragments.*
 
@@ -32,13 +33,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-
-        var btnLogOut = findViewById<Button>(R.id.btnLogout)
-
-        btnLogOut.setOnClickListener{ view ->
-            showMessage(view, "Logging Out...")
-            signOut()
-        }
 
         fbAuth.addAuthStateListener {
             if(fbAuth.currentUser == null){
@@ -105,6 +99,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         .beginTransaction()
                         .replace(R.id.content, SecurityFragment.newInstance())
                         .commit()
+            } R.id.signal_management -> {
+            supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.content, AlertManagerFragment.newInstance())
+                    .commit()
+            }
+            R.id.profile -> {
+                supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.content, ProfileFragment.newInstance())
+                        .commit()
+            }
+            R.id.logout -> {
+                showMessage(content, "Logging Out...")
+                signOut()
+                var intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
         }
 
